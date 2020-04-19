@@ -1,18 +1,19 @@
-// one source  of information
+// One source of information
 // it is global and can cause race conditions
 class Logger {
-  logs: string[];
-  instance;
-  constructor() {
-    if (this.instance === null) {
-      this.logs = [];
-      this.instance === this;
-    }
-    return this.instance;
-  }
-  log(message: string) {
-    console.log(`Message: ${message}`);
-  }
+	logs: string[];
+	instance: Logger;
+	constructor() {
+		if (this.instance === null) {
+			this.logs = [];
+			this.instance = this;
+		}
+		return this.instance;
+	}
+
+	log(message: string) {
+		console.log(`Message: ${message}`);
+	}
 }
 
 const logger = new Logger();
